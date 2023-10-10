@@ -1,0 +1,94 @@
+div[data-page=template] {
+    display: none;
+}
+
+.screenone {
+    visibility: visible;
+}
+
+.toppart {
+    background-color: lightblue;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 16%;
+}
+
+.topparthome {
+    background-color: lightblue;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 36%;
+}
+
+.introbody {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    text-align: center;
+    visibility: visible;
+}
+
+.hometitle {
+    text-align: center;
+    position: relative;
+}
+
+.logbutton {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    width: 5%;
+    height: 50%;
+    visibility: visible;
+}
+
+.logoutbutton {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    width: 5%;
+    height: 50%;
+    visibility: visible;
+}
+
+.logoutbuttonT {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    width: 5%;
+    height: 50%;
+    visibility: hidden;
+}
+
+.registerbutton {
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    width: 5%;
+    height: 50%;
+    visibility: visible;
+}
+
+.createtourney {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 20%;
+    height: 30%;
+    visibility: hidden;
+    font-size: xx-large;
+}
+
+.jointourney {
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    width: 20%;
+    height: 30%;
+    visibility: hidden;
+    font-size: xx-large;
+}
