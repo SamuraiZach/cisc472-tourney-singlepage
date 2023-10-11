@@ -32,19 +32,70 @@
 <body>
     <!--Get started click anywhere page-->
     <div data-page="content" id="display">
-        <div class="topparthome">
-            <h1 style="text-align:center; vertical-align: middle;
-            line-height: 36%;">WELCOME TO THE TOURNAMENT SITE!</h1>
+        <!---
+        <div class="toppart">
+            <h1 style="position: absolute;left:32%;top:25%">WELCOME TO THE TOURNAMENT SITE!</h1>
         </div>
-        <div>
+        <div class="homebody">
             <p>Click anywhere to get started!</p>
             <button id="btn" class="btn">clickhere</button>
-        </div>
+        </div>--->
     </div>
     <!--Login Page / Signed out-->
-    <div data-page="template" id="page1"></div>
+    <div data-page="template" id="page1">
+        <div class="toppart">
+            <h1 style="position: absolute;left:32%;top:25%">WELCOME TO THE TOURNAMENT SITE!</h1>
+            <button id="logbutton" class="logbutton">Log In! Google</button>
+            <button id="registerbutton" class="registerbutton">Register Here!</button>
+            <dialog class="modalReg" id="modalReg">
+                <h1 style="text-align: center;">Welcome!</h1>
+                <label for="fnameR">Username:</label>
+                <input type="text" id="fnameR" name="fnameR" class="fnameR" value=""></input>
+                <label for="pwdR">Password:</label>
+                <input type="password" id="pwdR" name="pwdR" class="pwdR" value=""></input>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="email" value=""></input>
+                <button class="closeReg" id="closeReg">Submit</button>
+            </dialog>
+            <button id="helpbutton" class="helpbutton">Need Help?</button>
+            <p style="position:absolute;left: 1%;top: 60%;" id="da">Username:</p>
+        </div>
+        <div class="homebody">
+            <h1 id="introbody" class="introbody">Welcome to the tournament! Please sign in above to get started!</h1>
+        </div>
+    </div>
     <!--Logged In-->
-    <div data-page="template" id="page2"></div>
+    <div data-page="template" id="page2">
+        <div class="toppart">
+            <h1 style="position: absolute;left:32%;top:25%">WELCOME TO THE TOURNAMENT SITE!</h1>
+            <p style="position:absolute;left: 1%;top: 60%;" id="da">Username:</p>
+            <button id="logoutbutton" class="logoutbutton">Logout</button>
+            <p style="position:absolute;left: 5.5%;top: 60%;" id="namereg" class="namereg"></p>
+        </div>
+        <div class="homebody">
+            <button id="createtourney" class="createtourney">CREATE TOURNEY HERE!</button>
+            <dialog class="modalCreate" id="modalCreate">
+                <h1 style="text-align: center;">Create Your Tournament!</h1>
+                <label for="tname">Name of Tournament:</label>
+                <input type="text" id="tname" name="tname" class="tname" value=""></input>
+                <label for="gname">Name of Game:</label>
+                <input type="text" id="gname" name="gname" class="gname" value=""></input>
+                <label for="nump">Number of Players:</label>
+                <input type="text" id="nump" name="nump" class="nump" value=""></input>
+                <label for="gpwd">Password (blank if none):</label>
+                <input type="password" id="gpwd" name="gpwd" class="gpwd" value=""></input>
+                <label for="pbox">Public?</label>
+                <input type="checkbox" id="pbox" name="pbox" class="pbox" value="Public"></input>
+                <button class="closeCreate" id="closeCreate">Create!</button>
+            </dialog>
+            <button id="jointourney" class="jointourney">JOIN A TOURNEY!</button></div>
+    </div>
+    <!--Tournament Views?-->
+    <div data-page="template" id="page3">
+        <div class="toppart">
+            <h1 style="position: absolute;left:32%;top:25%">Tournament!</h1>
+        </div>
+    </div>
 </body>
 
 </html>
