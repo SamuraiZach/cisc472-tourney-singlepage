@@ -47,6 +47,16 @@
             <h1 style="position: absolute;left:32%;top:25%">WELCOME TO THE TOURNAMENT SITE!</h1>
             <button id="logbutton" class="logbutton">Log In! Google</button>
             <button id="logbuttonDB" class="logbuttonDB">Log In!</button>
+            <dialog class="logReg" id="logReg">
+                <h1 style="text-align: center;">Welcome!</h1>
+                <label for="fnameL">Username:</label>
+                <input type="text" id="fnameL" name="fnameL" class="fnameL" value=""></input>
+                <label for="pwdL">Password:</label>
+                <input type="password" id="pwdL" name="pwdL" class="pwdL" value=""></input>
+                <label for="emailL">Email:</label>
+                <input type="email" id="emailL" name="emailL" class="emailL" value=""></input>
+                <button class="closeLog" id="closeLog">Submit</button>
+            </dialog>
             <button id="registerbutton" class="registerbutton">Register Here!</button>
             <dialog class="modalReg" id="modalReg">
                 <h1 style="text-align: center;">Welcome!</h1>
@@ -91,7 +101,8 @@
             </dialog>
             <button id="jointourney" class="jointourney">JOIN A TOURNEY!</button>
         </div>
-        <div id="linkTables"></div>
+        <div id="linkGlobalTables" class="linkGlobalTables"></div>
+        <div id="yourTables" class="yourTables"></div>
     </div>
     <!--Tournament Views?-->
     <div data-page="template" id="page3">

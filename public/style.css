@@ -15,6 +15,30 @@ div[data-page=template] {
     height: 16%;
 }
 
+.linkGlobalTables {
+    background-color: #297282;
+    position: absolute;
+    top: 16%;
+    left: 0%;
+    width: 10%;
+    height: 84%;
+    overflow-y: auto;
+}
+
+.yourTables {
+    background-color: #E6AC5A;
+    position: absolute;
+    top: 16%;
+    left: 10%;
+    width: 10%;
+    height: 84%;
+    overflow-y: auto;
+}
+
+.hyperLink {
+    position: absolute;
+}
+
 .homebody {
     position: absolute;
     left: 0%;
@@ -93,8 +117,8 @@ div[data-page=template] {
 
 .createtourney {
     position: absolute;
-    top: 40%;
-    left: 20%;
+    top: 35%;
+    left: 30%;
     width: 20%;
     height: 30%;
     visibility: visible;
@@ -103,7 +127,7 @@ div[data-page=template] {
 
 .jointourney {
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 60%;
     width: 20%;
     height: 30%;

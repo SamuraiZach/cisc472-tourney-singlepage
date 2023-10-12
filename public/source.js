@@ -72,6 +72,29 @@ let renderLogin = () => {
         //console.log(tryF.displayName, " test");
         //showNextPage();
     });
+    $("#logbuttonDB").on("click", () => {
+        const logReg = $("#logReg")[0];
+        $("#fnameL").val("");
+        $("#pwdL").val("");
+        $("#emailL").val("");
+        logReg.showModal();
+        $("#closeLog").click(() => {
+            const logReg = $("#logReg")[0];
+            password = $("#pwdL").val();
+            email = $("#emailL").val();;
+            firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+                    username = $("#fnameL").val();
+                    // Signed in
+                    var user = userCredential.user;
+                    // ...
+                })
+                .catch((error) => {
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                });
+            logReg.close();
+        });
+    });
     $("#registerbutton").on("click", () => {
         const modalReg = $("#modalReg")[0];
         $("#fnameR").val("");
@@ -133,13 +156,13 @@ let startApp = (user) => {
             const gamename = $("#gname").val();
             const numplayers = $("#nump").val();
             const gamepwd = $("#gpwd").val();
-            const ownersArry = [user];
+            const ownersArry = [user.displayName];
             const ownerDisplayName = user.displayName;
             const ownerEmail = user.email;
-            const playersArry = [];
-            const matches = [];
+            const playersArry = [""];
+            const matches = [""];
             const joinableLink = ("https://cisc472-tourney.web.app/", "Tournament/"); // ,tourneyName, "/", gamename, "/", ownerDisplayName);
-            let obj = { //add more if needed for bracket tourney
+            let obj = {
                 "TournamentName": tourneyName,
                 "GameName": gamename,
                 "NumPlayers": numplayers,
@@ -153,6 +176,20 @@ let startApp = (user) => {
             };
             //then ajax stuff into game on firebase
             const modalCreate = $("#modalCreate")[0];
+            console.log("pushed");
+            let newRef = firebase.database().ref("/Tournament").push();
+            newRef.set({
+                "TournamentName": tourneyName,
+                "GameName": gamename,
+                "NumPlayers": numplayers,
+                "GamePassword": gamepwd,
+                "Owners": ownersArry,
+                "Players": playersArry,
+                "Games": matches,
+                "OwnerEmail": ownerEmail,
+                "OwnerName": ownerDisplayName,
+                id: newRef.key
+            });
             modalCreate.close();
             //showNextPage();
         });
@@ -161,6 +198,21 @@ let startApp = (user) => {
 
     });
     console.log("redering");
+    firebase.database().ref("/Tournament").on("value", ss => {
+        $("#linkGlobalTables").html("");
+        $("#yourTables").html("");
+        $("#linkGlobalTables").append(`<h3>Global Tables</h3>`)
+        $("#yourTables").append(`<h3>Your Tables</h3>`)
+        let allTournaments = ss.val() || {};
+        Object.keys(allTournaments).map(sID => {
+            let theTournament = allTournaments[sID];
+            if (theTournament.OwnerName == user.displayName) {
+                $("#yourTables").append(`<a class="survey-wrap" href="/Tournament/${sID}"><h3 id="hyperLink">${theTournament.TournamentName}</h3></a>`);
+            }
+            $("#linkGlobalTables").append(`<a class="survey-wrap" href="/Tournament/${sID}"><h3 id="hyperLink">${theTournament.TournamentName}</h3></a>`);
+        });
+
+    });
 
 
 };
@@ -171,7 +223,7 @@ let routeToPage = (parts, user) => {
         showNextPage();
         startApp(user);
     } else {
-        if (parts[1] == "tournament" && parts[2].length > 1) {
+        if (parts[1] == "Tournament" && parts[2].length > 1) {
             //renderSurvey(parts[2]);
             console.log("teehee");
         } else {
