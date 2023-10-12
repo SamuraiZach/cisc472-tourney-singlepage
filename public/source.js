@@ -1,4 +1,6 @@
 //create pushes table 
+/*var google_provider = new firebase.auth.GoogleAuthProvider();
+google_provider.setCustomParameters({ prompt: 'select_account' });*/
 var pages = ['page1', 'page2', 'page3'];
 var currentPageIndex = -1;
 console.log(currentPageIndex + " top of js");
@@ -64,6 +66,10 @@ firebase.auth().onAuthStateChanged(user => {
 
 };*/
 let renderLogin = () => {
+    /*var google_provider = new firebase.auth.GoogleAuthProvider();
+    google_provider.setCustomParameters({ prompt: 'select_account' });*/
+    var google_provider = new firebase.auth.GoogleAuthProvider();
+    google_provider.setCustomParameters({ prompt: 'select_account' });
     console.log("entered");
     console.log($("#logbutton")[0]);
     $("#logbutton").on("click", () => {
@@ -232,9 +238,9 @@ let routeToPage = (parts, user) => {
             startApp(user);
         }
     }
-}
-var google_provider = new firebase.auth.GoogleAuthProvider();
-google_provider.setCustomParameters({ prompt: 'select_account' });
+};
+/*var google_provider = new firebase.auth.GoogleAuthProvider();
+google_provider.setCustomParameters({ prompt: 'select_account' });*/
 document.addEventListener('DOMContentLoaded', function() {
     let pn = document.location.pathname;
     let URLparts = pn.split("/");
