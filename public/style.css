@@ -76,6 +76,15 @@ div[data-page=template] {
 .registerbutton {
     position: absolute;
     top: 20%;
+    left: 11%;
+    width: 5%;
+    height: 50%;
+    visibility: visible;
+}
+
+.logbuttonDB {
+    position: absolute;
+    top: 20%;
     left: 6%;
     width: 5%;
     height: 50%;
